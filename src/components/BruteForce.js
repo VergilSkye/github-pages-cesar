@@ -4,7 +4,22 @@ class BruteForce extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          text: '', 
+           text: `          
+O poeta e um fingidor.
+Finge tao completamente
+Que chega a fingir que e dor
+A dor que deveras sente.
+
+E os que leem o que escreve,
+Na dor lida sentem bem,
+Nao as duas que ele teve,
+Mas so a que eles nao tem.
+
+E assim nas calhas da roda
+Gira, a entreter a razao,
+Esse comboio de corda
+Que se chama o coracao.
+          `,
           sinal: props.sinal           
         };
       } 
@@ -33,7 +48,7 @@ class BruteForce extends React.Component {
           if (c.match(/[a-z]/i)) {    
             // Get its code
             var code = parseInt(c.charCodeAt(0)); 
-            if(sinal == '+') {
+            if(sinal === '+') {
                  // Uppercase letters
                 if ((code >= 65) && (code <= 90)){
                     c = String.fromCharCode(mod((code-65 + numero), 26) + 65);              
@@ -44,7 +59,7 @@ class BruteForce extends React.Component {
                 else if ((code >= 97) && (code <= 122)){               
                     c = String.fromCharCode(mod((code-97 + numero), 26) + 97);
                 }     
-            } else if(sinal == '-') {
+            } else if(sinal === '-') {
                  // Uppercase letters
                 if ((code >= 65) && (code <= 90)){
                     c = String.fromCharCode(mod((code-65 - numero), 26) + 65);              
@@ -120,7 +135,7 @@ class BruteForce extends React.Component {
                             <label htmlFor="exampleFormControlTextarea1">Coloque o texto aqui</label>
                             <textarea className="form-control" id="exampleFormControlTextarea1" 
                              rows="3"
-                            placeholder={this.state.text}
+                            value={this.state.text}
                             onChange={this.handleChangeText.bind(this)}></textarea>                            
                         </div>                          
                 </div>

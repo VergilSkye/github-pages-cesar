@@ -5,7 +5,22 @@ class Crip extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          text: 'Enter a word or phrase to encode',
+          text: `          
+O poeta e um fingidor.
+Finge tao completamente
+Que chega a fingir que e dor
+A dor que deveras sente.
+
+E os que leem o que escreve,
+Na dor lida sentem bem,
+Nao as duas que ele teve,
+Mas so a que eles nao tem.
+
+E assim nas calhas da roda
+Gira, a entreter a razao,
+Esse comboio de corda
+Que se chama o coracao.
+          `,
           numberShift: 0,  
           sinal: props.sinal           
         };
@@ -36,7 +51,7 @@ class Crip extends React.Component{
           if (c.match(/[a-z]/i)) {    
             // Get its code
             var code = parseInt(c.charCodeAt(0)); 
-            if(sinal == '+') {
+            if(sinal === '+') {
                  // Uppercase letters
                 if ((code >= 65) && (code <= 90)){
                     c = String.fromCharCode(mod((code-65 + numero), 26) + 65);              
@@ -47,7 +62,7 @@ class Crip extends React.Component{
                 else if ((code >= 97) && (code <= 122)){               
                     c = String.fromCharCode(mod((code-97 + numero), 26) + 97);
                 }     
-            } else if(sinal == '-') {
+            } else if(sinal === '-') {
                  // Uppercase letters
                 if ((code >= 65) && (code <= 90)){
                     c = String.fromCharCode(mod((code-65 - numero), 26) + 65);              
@@ -83,11 +98,11 @@ class Crip extends React.Component{
         return saida;
         };
         
-        return cesarCifra(this.state.value, this.state.numberShift, this.state.sinal);
+        return cesarCifra(this.state.text, this.state.numberShift, this.state.sinal);
     }
     handleChangeText(event) {
         this.setState({
-          value: event.target.value
+          text: event.target.value
         });        
     }
     handleChangeNumber(event) {
@@ -120,15 +135,15 @@ class Crip extends React.Component{
                         <div className="field">
                             <label htmlFor="exampleFormControlTextarea1">Coloque o texto aqui</label>
                             <textarea className="form-control" id="exampleFormControlTextarea1" 
-                             rows="10"
-                            placeholder={this.state.text}
+                             rows="20"
+                            value={this.state.text}
                             onChange={this.handleChangeText.bind(this)}></textarea>
                             
                         </div>
                         <div className="field">
                             <label htmlFor="exampleFormControlTextarea1">Saida</label>
                             <textarea  className="form-control bg-white" id="exampleFormControlTextarea1" 
-                             rows="10" 
+                             rows="20" 
                             value={this.convert()} readOnly ></textarea>
                         </div>
                    

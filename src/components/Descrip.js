@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
 import DescripOption from './DescripOption'
 import semanticUiTransition from 'semantic-ui-transition';

@@ -4,7 +4,22 @@ class Freq extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          text: '', 
+           text: `          
+O poeta e um fingidor.
+Finge tao completamente
+Que chega a fingir que e dor
+A dor que deveras sente.
+
+E os que leem o que escreve,
+Na dor lida sentem bem,
+Nao as duas que ele teve,
+Mas so a que eles nao tem.
+
+E assim nas calhas da roda
+Gira, a entreter a razao,
+Esse comboio de corda
+Que se chama o coracao.
+          `, 
           sinal: props.sinal,
           num: 2           
         };
@@ -34,7 +49,7 @@ class Freq extends React.Component {
           if (c.match(/[a-z]/i)) {    
             // Get its code
             var code = parseInt(c.charCodeAt(0)); 
-            if(sinal == '+') {
+            if(sinal === '+') {
                  // Uppercase letters
                 if ((code >= 65) && (code <= 90)){
                     c = String.fromCharCode(mod((code-65 + numero), 26) + 65);              
@@ -45,7 +60,7 @@ class Freq extends React.Component {
                 else if ((code >= 97) && (code <= 122)){               
                     c = String.fromCharCode(mod((code-97 + numero), 26) + 97);
                 }     
-            } else if(sinal == '-') {
+            } else if(sinal === '-') {
                  // Uppercase letters
                 if ((code >= 65) && (code <= 90)){
                     c = String.fromCharCode(mod((code-65 - numero), 26) + 65);              
@@ -109,33 +124,39 @@ class Freq extends React.Component {
           return aux;
               
         }
+        // InGLES / PORTUGUES
         // T: 116 aparece  	16.671% 
-        // A: 116 aparece  	11.602% 
-        // S: 116 aparece  	07.755% %         
+        // A: 97 aparece  	11.602% 
+        // S: 115 aparece  	07.755% %      
+        
+        // PORTUGUES
+        // A: 97 aparece  	14.63% 
+        // E: 101 aparece  	12.57% 
+        // O: 111 aparece  	10.73 %   
         const array = funcaoFreq();
-        return array.map((e, index)=> {
-          let caract = e.charCodeAt();
+        return array.map((e, index) => {
+            let caract = e.charCodeAt();
             if(index < tentativas){
 
           
-              let lowerCaseT    = this.convert(parseInt(caract)- 116 );
-              let lowerCaseA    = this.convert(parseInt(caract) - 97);
-              let lowerCaseS    = this.convert(parseInt(caract) - 115); 
+              let lowerCaseT    = this.convert(parseInt(caract)- 97 );
+              let lowerCaseA    = this.convert(parseInt(caract) - 101);
+              let lowerCaseS    = this.convert(parseInt(caract) - 111); 
               return (
                 <div className="ui message">
-                    <div className="item" key={index + 'T'}>{index}T : {lowerCaseT}</div>
+                    <div className="item" key={index + 'T'}>{index}-T : {lowerCaseT}</div>
                     <hr/>
                     <br/>
-                    <div className="item" key={index + 'A'}>{index}A : {lowerCaseA}</div>
+                    <div className="item" key={index + 'A'}>{index}-A : {lowerCaseA}</div>
                     <hr/>
                     <br/>
-                    <div className="item" key={index + 'S'}>{index}S : {lowerCaseS}</div>
+                    <div className="item" key={index + 'S'}>{index}-S : {lowerCaseS}</div>
                     <hr/>
                     <br/>
-                </div>
-                
+                </div>                
             )             
             }
+            return null
         })
         
       }
@@ -143,7 +164,7 @@ class Freq extends React.Component {
      
     handleChangeText(event) {
         this.setState({
-          text: event.target.value
+          text: event.target.value.toLowerCase()
         });        
     }
     handleChangeNumber(event) {
@@ -161,6 +182,8 @@ class Freq extends React.Component {
         return (
             <div>
                 <h1>Frequencia</h1>
+                <p>Iremos encontrar as letras que mais aparecem no texto</p>
+                <p>chutaremos que essas letras são umas das 3 letras que mais aparecem no alfabeto</p>                
                 <div >
                   <div className="ui form">
                       <div className="field">
@@ -179,7 +202,7 @@ class Freq extends React.Component {
                             <label htmlFor="exampleFormControlTextarea1">Coloque o texto aqui</label>
                             <textarea className="form-control" id="exampleFormControlTextarea1" 
                              rows="10"
-                            placeholder={this.state.text}
+                            value={this.state.text}
                             onChange={this.handleChangeText.bind(this)}></textarea>                            
                         </div>   
                   </div>                            
