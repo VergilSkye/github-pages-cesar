@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1ee23dc62b4505fc640cab0cea576a79",
+    "revision": "1f8c7b725df7afa174226b85dbde8846",
     "url": "/github-pages-cesar/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/github-pages-cesar/static/js/2.d3559978.chunk.js"
   },
   {
-    "revision": "71ba68f69225f11620d9",
-    "url": "/github-pages-cesar/static/js/main.7c6c8820.chunk.js"
+    "revision": "41826fb21510db304594",
+    "url": "/github-pages-cesar/static/js/main.89d9a291.chunk.js"
   },
   {
     "revision": "0bca0ad9461c580d6d87",
