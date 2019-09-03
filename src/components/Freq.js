@@ -94,8 +94,7 @@ Que se chama o coracao.
         }
         // All done!
         return saida;
-        };  
-        this.funcaoTentativas()
+        };          
         return cesarCifra(this.state.text, tentativas, this.state.sinal);
     }
 
@@ -143,14 +142,14 @@ Que se chama o coracao.
               let lowerCaseA    = this.convert(parseInt(caract) - 101);
               let lowerCaseS    = this.convert(parseInt(caract) - 111); 
               return (
-                <div className="ui message">
-                    <div className="item" key={index + 'T'}>{index}-T : {lowerCaseT}</div>
+                <div className="ui message" key={index + 'M'} >
+                    <div className="item" key={index + 'A'} >{index}-A : {lowerCaseT}</div>
                     <hr/>
                     <br/>
-                    <div className="item" key={index + 'A'}>{index}-A : {lowerCaseA}</div>
+                    <div className="item" key={index + 'E'}>{index}-E : {lowerCaseA}</div>
                     <hr/>
                     <br/>
-                    <div className="item" key={index + 'S'}>{index}-S : {lowerCaseS}</div>
+                    <div className="item" key={index + 'O'}>{index}-O : {lowerCaseS}</div>
                     <hr/>
                     <br/>
                 </div>                
@@ -181,8 +180,8 @@ Que se chama o coracao.
           };
         return (
             <div>
-                <h1>Frequencia</h1>
-                <p>Iremos encontrar as letras que mais aparecem no texto</p>
+                <h1>Frequência</h1>
+                <p>Iremos encontrar as letras que mais aparecem no texto </p>
                 <p>chutaremos que essas letras são umas das 3 letras que mais aparecem no alfabeto</p>                
                 <div >
                   <div className="ui form">
@@ -201,7 +200,7 @@ Que se chama o coracao.
                         <div className="field">
                             <label htmlFor="exampleFormControlTextarea1">Coloque o texto aqui</label>
                             <textarea className="form-control" id="exampleFormControlTextarea1" 
-                             rows="10"
+                             rows="20"
                             value={this.state.text}
                             onChange={this.handleChangeText.bind(this)}></textarea>                            
                         </div>   
@@ -209,10 +208,8 @@ Que se chama o coracao.
                 
                 <div className="ui list">
                     <div style={divStyle}
-                         className="ui divided items    ">                            
-                             {this.funcaoTentativas(this.state.num)}
-                             
-                        
+                         className="ui divided items">                            
+                             {this.funcaoTentativas(this.state.num)}                        
                     </div>
                 </div>
                 

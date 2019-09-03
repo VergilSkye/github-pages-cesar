@@ -112,8 +112,8 @@ Que se chama o coracao.
             if(index<10)
                 index = '0'+index
             return (
-                <div>
-                    <div className="item" key={temp}>{index} : {text}</div>
+                <div key={temp}>
+                    <div className="item" >{index} : {text}</div>
                     <hr/>
                     <br/>
                 </div>
@@ -134,7 +134,7 @@ Que se chama o coracao.
                         <div className="field">
                             <label htmlFor="exampleFormControlTextarea1">Coloque o texto aqui</label>
                             <textarea className="form-control" id="exampleFormControlTextarea1" 
-                             rows="3"
+                             rows="20"
                             value={this.state.text}
                             onChange={this.handleChangeText.bind(this)}></textarea>                            
                         </div>                          
